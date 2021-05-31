@@ -21,7 +21,7 @@ router.post("/", async (req,res)=> {
     
 });
 
-router.get("/", async(req,res)=>{
+router.get("/", async(_,res)=>{
     try{
         const data = JSON.parse(await readFile(global.fileName));
         delete data.nextId;
@@ -31,5 +31,29 @@ router.get("/", async(req,res)=>{
     };
 });
 
+router.get("/:id", async(req,res)=> {
+    try{
+        const data = JSON.parse(await readFile(global.fileName));
+        const account = data.accounts.find(account => account.id === parseInt(req.params.id));
+        res.send(account);
+    }catch(err){
+        res.status(400).send({error: err.message});
+    }
+});
+
+router.delete("/:id", async(req,res) => {
+    try{
+        const data = JSON.parse(await readFile(global.fileName));
+        data.accounts = data.accounts.filter(account => account.id !== parseInt(req.params.id));
+
+        await writeFile(global.fileName, JSON.stringify(data,null,2));
+
+        res.end();
+    }catch(err){
+        res.status(400).send({error: err.message});
+
+    }
+
+});
 
 export default router;
