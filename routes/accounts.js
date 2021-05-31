@@ -7,9 +7,15 @@ const {readFile, writeFile} = fs
 router.post("/", async (req,res, next)=> {
     try{
         let account = (req.body);
+
+        if(!account.name || !account.balance == null){
+            throw new Error("Name e Balance são obrigatórios")
+        }
+
+
         const data = JSON.parse(await readFile(global.fileName));
 
-        account = {id: data.nextId++, ...account};
+        account = {id: data.nextId++,name: account.name, balance:account.balance};
         data.accounts.push(account);
 
         await writeFile(global.fileName, JSON.stringify(data, null, 2));
@@ -64,12 +70,21 @@ router.put("/", async (req, res,next)=> {
     try{
         const account = req.body;
 
+        if(!account.name || !account.balance == null){
+            throw new Error("Name e Balance são obrigatórios")
+        }
+
         const data = JSON.parse(await readFile(global.fileName));
         const index = data.accounts.findIndex(a => a.id === account.id);
 
-        data.accounts[index] = account;
+        if(index === -1){
+            throw new Error("Registo não encontrado.")
+        }
 
-        await writeFile(global.fileName, JSON.stringify(data));
+        data.accounts[index].name = account.name;
+        data.accounts[index].balance = account.balance;
+
+        await writeFile(global.fileName, JSON.stringify(data, null, 2));
 
         res.send(account);
         logger.info(`PUT /acccount - ${JSON.stringify(account)}`)
@@ -85,9 +100,17 @@ router.patch("/updateBalance", async(req,res, next)=> {
         const data = JSON.parse(await readFile(global.fileName));
         const index = data.accounts.findIndex(a => a.id === account.id);
 
+        if(!account.id || !account.balance == null){
+            throw new Error("ID e Balance são obrigatórios")
+        }
+
+        if(index === -1){
+            throw new Error("Registo não encontrado.")
+        }
+
         data.accounts[index].balance = account.balance;
 
-        await writeFile(global.fileName, JSON.stringify(data));
+        await writeFile(global.fileName, JSON.stringify(data, null, 2));
 
         res.send(data.accounts[index]);
         logger.info(`PATCH /acccount/updateBalance - ${JSON.stringify(account)}`)
