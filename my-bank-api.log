@@ -15,3 +15,26 @@
 2021-06-05T17:34:50.665Z, [my-bank-api] info GET /account
 2021-06-05T17:35:34.712Z, [my-bank-api] info GET /account
 2021-06-05T17:36:33.161Z, [my-bank-api] info GET /account
+2021-06-05T19:39:37.011Z, [my-bank-api] info API Started on port 3000 
+2021-06-05T19:47:17.262Z, [my-bank-api] info API Started on port 3000 
+2021-06-05T20:11:09.494Z, [my-bank-api] info API Started on port 3000 
+2021-06-05T20:11:34.333Z, [my-bank-api] info GET /account
+2021-06-05T20:11:38.508Z, [my-bank-api] error GET /account - logger.ifno is not a function
+2021-06-05T20:12:01.555Z, [my-bank-api] info API Started on port 3000 
+2021-06-05T20:12:07.369Z, [my-bank-api] info GET /account/:id
+2021-06-05T20:12:22.926Z, [my-bank-api] info GET /account/:id
+2021-06-05T20:59:14.936Z, [my-bank-api] info API Started on port 3000 
+2021-06-05T20:59:18.712Z, [my-bank-api] info GET /account
+2021-06-05T20:59:23.004Z, [my-bank-api] error GET /account - Registro não encontrado.
+2021-06-05T20:59:35.554Z, [my-bank-api] info PATCH /account/updateBalance - {"id":1,"name":"Gabriel Matuk","balance":2020}
+2021-06-05T20:59:49.728Z, [my-bank-api] info GET /account
+2021-06-05T20:59:54.246Z, [my-bank-api] info GET /account/:id
+2021-06-05T21:00:09.238Z, [my-bank-api] info GET /account
+2021-06-05T21:00:58.088Z, [my-bank-api] info API Started on port 3000 
+2021-06-05T21:01:03.794Z, [my-bank-api] info PATCH /account/updateBalance - {"id":1,"name":"Gabriel Matuk","balance":2020}
+2021-06-05T21:01:07.513Z, [my-bank-api] info PATCH /account/updateBalance - {"id":1,"name":"Gabriel Matuk","balance":2022}
+2021-06-05T21:01:10.199Z, [my-bank-api] info GET /account
+2021-06-05T21:01:11.028Z, [my-bank-api] info GET /account
+2021-06-05T21:01:11.621Z, [my-bank-api] info GET /account
+2021-06-05T21:01:23.644Z, [my-bank-api] info "POST /account - {"id":5,"name":"Salve ","balance":1700}"
+2021-06-05T21:02:01.844Z, [my-bank-api] info API Started on port 3000 
