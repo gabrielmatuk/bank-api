@@ -3,6 +3,8 @@ import winston from "winston";
 import accountsRouter from "./routes/accounts.js"
 import {promises as fs} from "fs"
 import cors from "cors";
+import swaggerUi from "swagger-ui-express";
+import {swaggerDocument} from "./doc.js"
 const {readFile, writeFile} = fs
 
 global.fileName = "accounts.json"
@@ -28,6 +30,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static("public"));
 app.use(cors());
+app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/account", accountsRouter);
 
 app.listen(3000, async () => {
@@ -41,7 +44,7 @@ app.listen(3000, async () => {
             accounts: []    
         }
         writeFile(global.fileName, JSON.stringify(initialJson)).then(()=>{
-            logger.info("API Started on port 3000 ")
+            logger.info("API Started on port 3000")
         }).catch(err =>{
             logger.error(err);
         });
