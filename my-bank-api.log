@@ -7,3 +7,11 @@
 2021-05-31T23:35:38.878Z, [my-bank-api] info API Started on port 3000 
 2021-05-31T23:37:19.344Z, [my-bank-api] info API Started on port 3000 
 2021-05-31T23:48:24.038Z, [my-bank-api] info API Started on port 3000 
+2021-06-01T00:44:34.018Z, [my-bank-api] info API Started on port 3000 
+2021-06-05T17:34:01.590Z, [my-bank-api] info API Started on port 3000 
+2021-06-05T17:34:21.013Z, [my-bank-api] info GET /account
+2021-06-05T17:34:43.871Z, [my-bank-api] info API Started on port 3000 
+2021-06-05T17:34:49.968Z, [my-bank-api] info GET /account
+2021-06-05T17:34:50.665Z, [my-bank-api] info GET /account
+2021-06-05T17:35:34.712Z, [my-bank-api] info GET /account
+2021-06-05T17:36:33.161Z, [my-bank-api] info GET /account
